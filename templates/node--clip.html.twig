@@ -91,6 +91,10 @@
     {% endif %}
   </header>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
-    {{ content.field_body }}
+    {{ content.body }}
+    <p>{% trans %}Information From{% endtrans %}:<br />
+      <a href="{{ content.field_source_url }}">{{ content.field_source_title }}</a> ({% filter trim %}{{ content.field_site_name }}{% endfilter %})
+    </p>
+    {{ content.field_more_info }}
   </div>
 </article>
