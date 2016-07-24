@@ -83,6 +83,9 @@ function jbict_preprocess_node(&$variables) {
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
     unset($variables['content']['links']['comment']['#links']['comment-add']);
   }
+
+  $node = $variables['node'];
+  $variables['author_fullname'] = $node->getOwner()->field_full_name->value;
 }
 
 /**
