@@ -5,8 +5,8 @@
 
 .site-branding__logo {
   display: inline-block;
-  margin-right: 1em; /* LTR */
-  margin-bottom: 0.286em;
+//  margin-right: 1em; /* LTR */
+//  margin-bottom: 0.286em;
 }
 [dir="rtl"] .site-branding__logo {
   margin-right: 0;
