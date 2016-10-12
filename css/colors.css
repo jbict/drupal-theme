@@ -18,9 +18,7 @@ body {
   border-bottom-color: #ffffff;
 }
 #header {
-  background-color: #1d84c3;
-  background-image: -webkit-linear-gradient(top, #055a8e 0%, #1d84c3 100%);
-  background-image: linear-gradient(to bottom, #055a8e 0%, #1d84c3 100%);
+  background-color: #fff;
 }
 a,
 .link {
@@ -30,7 +28,7 @@ a:hover,
 a:focus,
 .link:hover,
 .link:focus {
-  color: #018fe2;
+  color: #0031b3;
 }
 a:active,
 .link:active {
@@ -41,7 +39,7 @@ a:active,
   border-color: #f9f9f9;
 }
 .site-footer {
-  background: #292929;
+  background: #ccc;
 }
 .region-header,
 .region-header a,

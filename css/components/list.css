@@ -4,9 +4,11 @@
  */
 
 ul.links {
-  color: #68696b;
+  color: #000000;
+  display: inline-block;
+  float: right;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.821em;
+  font-size: 0.9em;
   padding: 0;
   margin: 0;
   list-style: none;
