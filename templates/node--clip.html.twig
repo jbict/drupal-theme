@@ -94,7 +94,7 @@
     {{ content.body }}
 {% spaceless %}
     <p>{% trans %}Information From{% endtrans %}:<br />
-      <a href="{{ content.field_source_url }}">{{ content.field_source_title }}</a> ({% filter trim %}{{ content.field_site_name }}{% endfilter %})
+      <a href="{% filter trim %}{{ content.field_source_url }}{% endfilter %}">{% filter trim %}{{ content.field_source_title }}{% endfilter %}</a> ({% filter trim %}{{ content.field_site_name }}{% endfilter %})
     </p>
 {% endspaceless %}
     {{ content.field_more_info }}
