@@ -80,7 +80,10 @@
           <section class="section">
             <a id="main-content" tabindex="-1"></a>
             {{ drupal_view('list_drafts') }}
-{{ page.content }}
+            {{ drupal_view('pending_comments') }}
+            {{ page.content }}
+            {{ drupal_view('recent_podcast', 'block_1') }}
+            {{ drupal_view('jbict_updates', 'block_1') }}
           </section>
         </main>
         {% if page.sidebar_first %}
