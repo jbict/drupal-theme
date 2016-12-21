@@ -37,8 +37,8 @@
 /* Node metadata styles. */
 .node__meta {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.857em;
-  color: #68696b;
+  font-size: 0.9em;
+  color: #3b3b3b;
   margin-bottom: -5px;
 }
 .node__meta .field--name-user-picture img {
