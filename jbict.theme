@@ -126,3 +126,10 @@ function jbict_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $form[$key]['submit']['#attributes']->addClass('search-form__submit');
   }
 }
+
+function jbict_preprocess_username(&$variables) {
+  $account = $variables['account'];
+
+    $variables['fullname'] = $account->field_full_name->value;
+}
+
