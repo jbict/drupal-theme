@@ -6,6 +6,7 @@
 .node__content {
   font-size: 1.071em;
   margin-top: 10px;
+  margin-left: 2em;
 }
 
 /* View mode teaser styles. */
@@ -36,7 +37,7 @@
 /* Node metadata styles. */
 .node__meta {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.857em;
+  font-size: 0.9em;
   color: #68696b;
   margin-bottom: -5px;
 }
