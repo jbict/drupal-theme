@@ -79,8 +79,8 @@
         <main id="content" class="column main-content" role="main">
           <section class="section">
             <a id="main-content" tabindex="-1"></a>
-            {{ drupal_view('list_drafts') }}
-            {{ drupal_view('pending_comments') }}
+            {{ drupal_view('list_drafts', 'block_1') }}
+            {{ drupal_view('pending_comments', 'block_1') }}
             {{ page.content }}
             {{ drupal_view('recent_podcast', 'block_1') }}
             {{ drupal_view('jbict_updates', 'block_1') }}
