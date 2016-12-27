@@ -34,6 +34,12 @@ function jbict_preprocess_html(&$variables) {
     $variables['attributes']['class'][] = 'has-featured-top';
   }
 
+
+if ( $variables['root_path'] == false ) {
+   $site_config = \Drupal::config('system.site');
+$variables['head_title'] = array($site_config->get('name'));
+         }
+
 }
 
 /**
