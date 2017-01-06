@@ -34,11 +34,10 @@ function jbict_preprocess_html(&$variables) {
     $variables['attributes']['class'][] = 'has-featured-top';
   }
 
-
-if ( $variables['root_path'] == false ) {
-   $site_config = \Drupal::config('system.site');
-$variables['head_title'] = array($site_config->get('name'));
-         }
+  if ( $variables['root_path'] == false ) {
+    $site_config = \Drupal::config('system.site');
+    $variables['head_title'] = array($site_config->get('name'));
+  }
 
 }
 
@@ -136,6 +135,6 @@ function jbict_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 function jbict_preprocess_username(&$variables) {
   $account = $variables['account'];
 
-    $variables['fullname'] = $account->field_full_name->value;
+  $variables['fullname'] = $account->field_full_name->value;
 }
 
