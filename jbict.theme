@@ -90,7 +90,10 @@ function jbict_preprocess_node(&$variables) {
   }
 
   $node = $variables['node'];
-  $variables['author_fullname'] = $node->getOwner()->field_full_name->value;
+$language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+$owner = $node->getOwner()->getTranslation($language);
+  $variables['author_fullname'] = $owner->field_full_name->value;
 }
 
 /**
