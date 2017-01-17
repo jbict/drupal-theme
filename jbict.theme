@@ -34,6 +34,11 @@ function jbict_preprocess_html(&$variables) {
     $variables['attributes']['class'][] = 'has-featured-top';
   }
 
+  if ( $variables['root_path'] == false ) {
+    $site_config = \Drupal::config('system.site');
+    $variables['head_title'] = array($site_config->get('name'));
+  }
+
 }
 
 /**
@@ -85,7 +90,10 @@ function jbict_preprocess_node(&$variables) {
   }
 
   $node = $variables['node'];
-  $variables['author_fullname'] = $node->getOwner()->field_full_name->value;
+$language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+$owner = $node->getOwner()->getTranslation($language);
+  $variables['author_fullname'] = $owner->field_full_name->value;
 }
 
 /**
@@ -130,6 +138,6 @@ function jbict_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 function jbict_preprocess_username(&$variables) {
   $account = $variables['account'];
 
-    $variables['fullname'] = $account->field_full_name->value;
+  $variables['fullname'] = $account->field_full_name->value;
 }
 
