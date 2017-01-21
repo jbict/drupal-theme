@@ -47,6 +47,7 @@
 %}
 {% for item in items %}
   <p{{ attributes.addClass(classes, 'field__item') }}>
-{{ '当サイトで取り上げた、<a href="@url">@name</a>からの情報の一覧です。'|t({'@url': item.content['#url'], '@name': item.content['#title']}) }}
+    {{ 'List of newsclips from
+<a href="@url">@name</a>.'|t({'@url': item.content['#url'], '@name': item.content['#title']}) }}
 </p>
 {% endfor %}
