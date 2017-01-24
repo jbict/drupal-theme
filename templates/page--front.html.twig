@@ -83,9 +83,13 @@
             {{ drupal_view('pending_comments', 'block_1') }}
             {{ drupal_view('new_source_sites', 'block_1') }}
             {{ page.content }}
+<div class="mail-left-column">
             {{ drupal_view('jbict_update', 'block_1') }}
             {{ drupal_view('recent_podcast', 'block_1') }}
+</div>
+<div class="main-right-column">
             {{ drupal_view('recent_clips', 'block_1') }}
+</div>
           </section>
         </main>
         {% if page.sidebar_first %}
