@@ -26,13 +26,13 @@
     width: 50%;
   }
   .layout-one-sidebar .main-content {
-    width: 75%;
+    width: 80%;
   }
   .layout-no-sidebars .main-content {
     width: 100%;
   }
   .layout-sidebar-first .main-content {
-    margin-left: 0; /* LTR */
+    margin-left: 5%; /* LTR */
     margin-right: 0; /* LTR */
   }
   [dir="rtl"] .layout-sidebar-first .main-content {
