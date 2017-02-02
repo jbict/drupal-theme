@@ -37,5 +37,6 @@
 }
 .views-field-created {
  margin: 0 0.5em;
+ word-wrap: no-wrap;
 }
 
