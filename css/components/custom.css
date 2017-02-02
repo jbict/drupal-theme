@@ -33,11 +33,11 @@
 }
 .item-list ul li {
  margin: 0 0 0.5em;
- clear: both;
 }
+
 .views-field-title {
  float: right;
- width: 75%;
+ width: 70%;
 }
 .views-field-created {
  float: left;
