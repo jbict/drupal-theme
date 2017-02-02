@@ -15,11 +15,12 @@
 
 .view-jbict-update {
  border-top: 2px solid #006600;
- margin-bottom: 2em;
+ padding-bottom: 3em;
 }
 
 .view-recent-podcast {
  border-top: 2px solid #ff6600;
+ margin-top: 2em;
  padding-bottom: 1em;
 }
 
