@@ -33,6 +33,7 @@
 }
 .item-list li {
  margin: 0 0 0.5em;
+ clear: both;
 }
 .views-field-title {
  float: right;
