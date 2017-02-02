@@ -4,15 +4,18 @@
  */
  
 .view-jbict-update {
-  border-top: 2px solid #006600;
+ border-top: 2px solid #006600;
+ padding-bottom: 1em;
 }
 
 .view-recent-podcast {
-  border-top: 2px solid #ff6600;
+ border-top: 2px solid #ff6600;
+ padding-bottom: 1em;
 }
 
 .view-recent-clips {
-  border-top: 2px solid #0066ff;
+ border-top: 2px solid #0066ff;
+ padding-bottom: 1em;
 }
 
 .main-left-column {
