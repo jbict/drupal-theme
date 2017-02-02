@@ -5,7 +5,7 @@
  
 .main-left-column {
   float: left;
-  width: 45%;
+  width: 50%;
   margin-right: 1em;
 }
 .main-right-column {
@@ -37,9 +37,10 @@
 }
 .views-field-title {
  float: right;
- width: 70%;
+ width: 75%;
 }
 .views-field-created {
  float: left;
+ width: 15em;
 }
 
