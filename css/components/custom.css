@@ -32,8 +32,10 @@
  margin: 0.5em 0 0.5em 2em;
 }
 
-.views-field-created {
+.views-field {
  display: inline;
+}
+.views-field-created {
  margin: 0 0.5em;
 }
 
