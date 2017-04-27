@@ -18,6 +18,11 @@
  padding-bottom: 3em;
 }
 
+.view-jbict-journal-report {
+ border-top: 2px solid #00ff66;
+ padding-bottom: 3em;
+}
+
 .view-recent-podcast {
  border-top: 2px solid #ff6600;
  margin-top: 2em;
@@ -30,20 +35,14 @@
 }
 
 .item-list ul {
- margin: 0.5em 0 0.5em 2em;
+ margin: 0.5em 0;
  clear: both;
 }
 .item-list ul li {
  margin: 0 0 0.5em;
 }
 
-.views-field-title {
- float: right;
- width: 70%;
-}
-.views-field-created {
- float: left;
-}
+
 
 .more-link {
  clear: both;
