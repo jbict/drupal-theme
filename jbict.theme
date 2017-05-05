@@ -163,6 +163,9 @@ function jbict_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 function jbict_preprocess_username(&$variables) {
   $account = $variables['account'];
 
-  $variables['fullname'] = $account->field_full_name->value;
+$language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+$user = $account->getTranslation($language);
+  $variables['fullname'] = $user->field_full_name->value;
 }
 
