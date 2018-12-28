@@ -3,6 +3,13 @@
  * JBICT が独自に追加したCSS
  */
  
+/* header */
+
+#header #block-language-switcher ul li {
+  display: inline;
+  margin: 0 0.5em;
+}
+
 .main-left-column {
   float: left;
   width: 50%;
