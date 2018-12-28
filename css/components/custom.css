@@ -10,6 +10,11 @@
   margin: 0 0.5em;
 }
 
+#header input#edit-keys {
+  border: 1px solid #000;
+}
+
+/* main */
 .main-left-column {
   float: left;
   width: 50%;
