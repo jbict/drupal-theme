@@ -61,9 +61,10 @@
 }
 
 /* footer */
+
 .site-footer {
- background: #fff;
- border-top: 2px solid #ccc;
+  background-color: #fff;
+  border-top: 2px solid #ccc;
 }
 
 .site-footer #block-main-navigation-bottom ul li {
