@@ -60,3 +60,9 @@
  clear: both;
 }
 
+/* footer */
+
+.site-footer #block-main-navigation-bottom ul li {
+  display: inline;
+}
+
