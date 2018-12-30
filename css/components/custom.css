@@ -3,6 +3,18 @@
  * JBICT が独自に追加したCSS
  */
  
+/* header */
+
+#header #block-language-switcher ul li {
+  display: inline;
+  margin: 0 0.5em;
+}
+
+#header #block-jbict-search {
+  border: 1px solid #666;
+}
+
+/* main */
 .main-left-column {
   float: left;
   width: 50%;
@@ -42,9 +54,18 @@
  margin: 0 0 0.5em;
 }
 
-
-
 .more-link {
  clear: both;
+}
+
+/* footer */
+
+div.site-footer {
+  background-color: #fff;
+  border-top: 2px solid #ccc;
+}
+
+.site-footer #block-main-navigation-bottom ul li {
+  display: inline;
 }
 
