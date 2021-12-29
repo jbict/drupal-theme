@@ -9,13 +9,14 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\views\Form\ViewsForm;
+use Drupal\Core\Render\Markup;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
  *
  * Adds body classes if certain regions have content.
  */
-function bartik_preprocess_html(&$variables) {
+function jbict_preprocess_html(&$variables) {
   // Add information about the number of sidebars.
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['attributes']['class'][] = 'layout-two-sidebars';
@@ -36,12 +37,70 @@ function bartik_preprocess_html(&$variables) {
     $variables['attributes']['class'][] = 'has-featured-top';
   }
 
+  $site_config = \Drupal::config('system.site');
+
+  // Construct page title.
+  if (isset($variables['page']['#title']) && is_array($variables['page']['#title'])) {
+    // Do an early render if the title is a render array.
+    $variables['page']['#title'] = (string) \Drupal::service('renderer')->render($variables['page']['#title']);
+  }
+  if (!empty($variables['page']['#title'])) {
+    $head_title = array(
+      // Marking the title as safe since it has had the tags stripped.
+      'title' => Markup::create(trim(strip_tags($variables['page']['#title']))),
+      'name' => $site_config->get('slogan'),
+    );
+  }
+  else {
+    $head_title = ['name' => $site_config->get('name')];
+    if ($site_config->get('slogan')) {
+      $head_title['slogan'] = strip_tags($site_config->get('slogan'));
+    }
+  }
+
+  $variables['head_title'] = $head_title;
+  // @deprecated in Drupal 8.0.0, will be removed before Drupal 9.0.0.
+  $variables['head_title_array'] = $head_title;
+
+  if ( $variables['root_path'] == false ) {
+    $variables['head_title'] = array($site_config->get('slogan'));
+  }
+
+  $site_config = \Drupal::config('system.site');
+
+  // Construct page title.
+  if (isset($variables['page']['#title']) && is_array($variables['page']['#title'])) {
+    // Do an early render if the title is a render array.
+    $variables['page']['#title'] = (string) \Drupal::service('renderer')->render($variables['page']['#title']);
+  }
+  if (!empty($variables['page']['#title'])) {
+    $head_title = array(
+      // Marking the title as safe since it has had the tags stripped.
+      'title' => Markup::create(trim(strip_tags($variables['page']['#title']))),
+      'name' => $site_config->get('slogan'),
+    );
+  }
+  else {
+    $head_title = ['name' => $site_config->get('name')];
+    if ($site_config->get('slogan')) {
+      $head_title['slogan'] = strip_tags($site_config->get('slogan'));
+    }
+  }
+
+  $variables['head_title'] = $head_title;
+  // @deprecated in Drupal 8.0.0, will be removed before Drupal 9.0.0.
+  $variables['head_title_array'] = $head_title;
+
+  if ( $variables['root_path'] == false ) {
+    $variables['head_title'] = array($site_config->get('slogan'));
+  }
+
 }
 
 /**
  * Implements hook_preprocess_HOOK() for page title templates.
  */
-function bartik_preprocess_page_title(&$variables) {
+function jbict_preprocess_page_title(&$variables) {
   // Since the title and the shortcut link are both block level elements,
   // positioning them next to each other is much simpler with a wrapper div.
   if (!empty($variables['title_suffix']['add_or_remove_shortcut']) && $variables['title']) {
@@ -63,7 +122,7 @@ function bartik_preprocess_page_title(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for maintenance-page.html.twig.
  */
-function bartik_preprocess_maintenance_page(&$variables) {
+function jbict_preprocess_maintenance_page(&$variables) {
   // By default, site_name is set to Drupal if no db connection is available
   // or during site installation. Setting site_name to an empty string makes
   // the site and update pages look cleaner.
@@ -73,24 +132,30 @@ function bartik_preprocess_maintenance_page(&$variables) {
   }
 
   // Bartik has custom styling for the maintenance page.
-  $variables['#attached']['library'][] = 'bartik/maintenance_page';
+  $variables['#attached']['library'][] = 'jbict/maintenance_page';
 }
 
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
-function bartik_preprocess_node(&$variables) {
+function jbict_preprocess_node(&$variables) {
   // Remove the "Add new comment" link on teasers or when the comment form is
   // displayed on the page.
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
     unset($variables['content']['links']['comment']['#links']['comment-add']);
   }
+
+  $node = $variables['node'];
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $owner = $node->getOwner()->getTranslation($language);
+  $variables['author_fullname'] = $owner->field_full_name->value;
 }
 
 /**
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
-function bartik_preprocess_block(&$variables) {
+function jbict_preprocess_block(&$variables) {
   // Add a clearfix class to system branding blocks.
   if ($variables['plugin_id'] == 'system_branding_block') {
     $variables['attributes']['class'][] = 'clearfix';
@@ -100,14 +165,14 @@ function bartik_preprocess_block(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for menu.html.twig.
  */
-function bartik_preprocess_menu(&$variables) {
+function jbict_preprocess_menu(&$variables) {
   $variables['attributes']['class'][] = 'clearfix';
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
  */
-function bartik_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+function jbict_theme_suggestions_form_alter(array &$suggestions, array $variables) {
   if ($variables['element']['#form_id'] == 'search_block_form') {
     $suggestions[] = 'form__search_block_form';
   }
@@ -116,7 +181,7 @@ function bartik_theme_suggestions_form_alter(array &$suggestions, array $variabl
 /**
  * Implements hook_form_alter().
  */
-function bartik_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function jbict_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Add classes to the search form.
   if (in_array($form_id, ['search_block_form', 'search_form'])) {
     $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
@@ -152,7 +217,7 @@ function bartik_form_alter(&$form, FormStateInterface $form_state, $form_id) {
  * @todo Do this in the relevant template once
  *   https://www.drupal.org/project/drupal/issues/3088856 is resolved.
  */
-function bartik_preprocess_links__media_library_menu(array &$variables) {
+function jbict_preprocess_links__media_library_menu(array &$variables) {
   foreach ($variables['links'] as &$link) {
     // This conditional exists because the media-library-menu__link class is
     // currently added by Classy, but Bartik will eventually not use Classy as a
@@ -172,7 +237,7 @@ function bartik_preprocess_links__media_library_menu(array &$variables) {
  *
  * @todo Revisit in https://drupal.org/node/3117430
  */
-function bartik_preprocess_image_widget(&$variables) {
+function jbict_preprocess_image_widget(&$variables) {
   if (!empty($variables['element']['fids']['#value'])) {
     $file = reset($variables['element']['#files']);
     $variables['data']["file_{$file->id()}"]['filename']['#suffix'] = ' <span class="file-size">(' . format_size($file->getSize()) . ')</span> ';
@@ -188,7 +253,7 @@ function bartik_preprocess_image_widget(&$variables) {
  *
  * @todo remove in https://drupal.org/node/3120962
  */
-function bartik_preprocess_links(&$variables) {
+function jbict_preprocess_links(&$variables) {
   if (!empty($variables['links'])) {
     foreach ($variables['links'] as $key => $value) {
       if (!is_numeric($key)) {
@@ -197,4 +262,13 @@ function bartik_preprocess_links(&$variables) {
       }
     }
   }
+}
+
+function jbict_preprocess_username(&$variables) {
+  $account = $variables['account'];
+
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $user = $account->getTranslation($language);
+  $variables['fullname'] = $user->field_full_name->value;
 }

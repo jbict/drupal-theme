@@ -26,14 +26,14 @@
     margin-left: 25%;
   }
   .layout-one-sidebar .main-content {
-    width: 75%;
+    width: 80%;
   }
   .layout-no-sidebars .main-content {
     width: 100%;
   }
   .layout-sidebar-first .main-content {
     margin-right: 0; /* LTR */
-    margin-left: 25%; /* LTR */
+    margin-left: 5%; /* LTR */
   }
   [dir="rtl"] .layout-sidebar-first .main-content {
     margin-right: 25%;

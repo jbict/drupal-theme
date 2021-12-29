@@ -11,39 +11,39 @@
 # 2. Sub-theme Bartik. This is only recommended if you want to make minor
 # tweaks and understand that Bartik could break your modifications as it
 # changes.
-name: Bartik
+name: JBICT
 type: theme
 base theme: false
-description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout, adjusted for JBICT.Net.'
 package: Core
 version: VERSION
 libraries:
-  - bartik/classy.base
-  - bartik/classy.messages
+  - jbict/classy.base
+  - jbict/classy.messages
   - core/normalize
-  - bartik/global-styling
+  - jbict/global-styling
 
 libraries-extend:
   core/drupal.dialog:
-    - bartik/classy.dialog
+    - jbict/classy.dialog
   core/drupal.dropbutton:
-    - bartik/classy.dropbutton
+    - jbict/classy.dropbutton
   core/drupal.progress:
-    - bartik/classy.progress
+    - jbict/classy.progress
   file/drupal.file:
-    - bartik/classy.file
+    - jbict/classy.file
   filter/drupal.filter.admin:
-    - bartik/filter
+    - jbict/filter
   filter/drupal.filter:
-    - bartik/filter
+    - jbict/filter
   media/media_embed_ckeditor_theme:
-    - bartik/classy.media_embed_ckeditor_theme
+    - jbict/classy.media_embed_ckeditor_theme
   media_library/view:
-    - bartik/classy.media_library
+    - jbict/classy.media_library
   media_library/widget:
-    - bartik/classy.media_library
+    - jbict/classy.media_library
   user/drupal.user:
-    - bartik/user
+    - jbict/user
 
 ckeditor_stylesheets:
   - css/base/elements.css

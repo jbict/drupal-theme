@@ -73,9 +73,8 @@
   color: #555;
 }
 .site-footer .content {
-  color: #c0c0c0;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.857em;
+  color: #000000;
+  font-size: 0.9em;
 }
 .site-footer .menu-item {
   padding: 0;
@@ -91,13 +90,11 @@
 }
 .site-footer .content a,
 .site-footer .content a.is-active {
-  color: #fcfcfc;
-  color: rgba(255, 255, 255, 0.8);
+  color: #333;
 }
 .site-footer .content a:hover,
 .site-footer .content a:focus {
-  color: #fefefe;
-  color: rgba(255, 255, 255, 0.95);
+  color: #000000;
 }
 .site-footer .block {
   margin: 20px 0;
