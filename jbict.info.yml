@@ -13,18 +13,45 @@
 # changes.
 name: JBICT
 type: theme
-base theme: classy
-description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout, adjusted for jbict.net.'
+base theme: false
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout, adjusted for JBICT.Net.'
 package: Core
 version: VERSION
-core: 8.x
+core_version_requirement: ~9
 libraries:
+  - jbict/classy.base
+  - jbict/classy.messages
+  - core/normalize
   - jbict/global-styling
+
+libraries-extend:
+  core/drupal.dialog:
+    - jbict/classy.dialog
+  core/drupal.dropbutton:
+    - jbict/classy.dropbutton
+  core/drupal.progress:
+    - jbict/classy.progress
+  file/drupal.file:
+    - jbict/classy.file
+  filter/drupal.filter.admin:
+    - jbict/filter
+  filter/drupal.filter:
+    - jbict/filter
+  media/media_embed_ckeditor_theme:
+    - jbict/classy.media_embed_ckeditor_theme
+  media_library/view:
+    - jbict/classy.media_library
+  media_library/widget:
+    - jbict/classy.media_library
+  user/drupal.user:
+    - jbict/user
+
 ckeditor_stylesheets:
   - css/base/elements.css
   - css/components/captions.css
   - css/components/table.css
   - css/components/text-formatted.css
+  - css/classy/components/media-embed-error.css
 regions:
   header: Header
   primary_menu: 'Primary menu'
