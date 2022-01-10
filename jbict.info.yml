@@ -17,6 +17,7 @@ base theme: false
 description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout, adjusted for JBICT.Net.'
 package: Core
 version: VERSION
+core_version_requirement: ~9
 libraries:
   - jbict/classy.base
   - jbict/classy.messages
